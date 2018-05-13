@@ -22,9 +22,9 @@ public class MongoConfig extends AbstractMongoConfiguration{
 	
 	@Override
 	public MongoClient mongoClient() {
-		MongoCredential credential = MongoCredential.createMongoCRCredential(
+		MongoCredential credential = MongoCredential.createCredential(
 				env.getProperty("mongo.user"), 
-				env.getProperty("mongo.dbname"), 
+				"j2ee", 
 				env.getProperty("mongo.passwd").toCharArray()
 		);
 		return new MongoClient(
@@ -38,7 +38,7 @@ public class MongoConfig extends AbstractMongoConfiguration{
 
 	@Override
 	protected String getDatabaseName() {
-		return env.getProperty("mongo.dbname");
+		return "j2ee";
 	}
 
 }
