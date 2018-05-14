@@ -1,4 +1,4 @@
-package shopping.model;
+package shopping.model.mongo;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

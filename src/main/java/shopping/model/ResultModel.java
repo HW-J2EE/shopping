@@ -1,23 +1,23 @@
 package shopping.model;
 
 import java.util.Date;
-import java.util.HashMap;
+import java.util.Map;
 
 public class ResultModel {
-	HashMap<String, Object> data;
+	Map<String, Object> data;
 	int status;
 	Date date;
-	public static ResultModel successResult(HashMap<String, Object> data) {
+	public static ResultModel successResult(Map<String, Object> data2) {
 		ResultModel resultModel = new ResultModel();
-		resultModel.data = data;
+		resultModel.data = data2;
 		resultModel.status = 1;
 		resultModel.date = new Date();
 		return resultModel;
 	}
-	public HashMap<String, Object> getData() {
+	public Map<String, Object> getData() {
 		return data;
 	}
-	public void setData(HashMap<String, Object> data) {
+	public void setData(Map<String, Object> data) {
 		this.data = data;
 	}
 	public int getStatus() {
