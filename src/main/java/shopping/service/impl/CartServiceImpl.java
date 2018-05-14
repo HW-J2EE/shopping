@@ -2,13 +2,10 @@ package shopping.service.impl;
 
 import java.util.Iterator;
 
-import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Criteria;
-import org.springframework.data.mongodb.core.query.CriteriaDefinition;
 import org.springframework.data.mongodb.core.query.Query;
-import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
 
 import shopping.model.Cart;
@@ -34,6 +31,9 @@ public class CartServiceImpl implements CartService {
 				if(item.getCommodityId()==commodityId) {
 					exist = true;
 					item.countAdd(count);
+					if(item.getCount()==0) {
+						iterator.remove();
+					}
 					break;
 				}
 			}

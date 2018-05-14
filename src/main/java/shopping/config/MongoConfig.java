@@ -1,5 +1,4 @@
 package shopping.config;
-import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -9,6 +8,7 @@ import org.springframework.data.mongodb.config.AbstractMongoConfiguration;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 import com.mongodb.MongoClient;
+import com.mongodb.MongoClientOptions;
 import com.mongodb.MongoCredential;
 import com.mongodb.ServerAddress;
 
@@ -32,7 +32,8 @@ public class MongoConfig extends AbstractMongoConfiguration{
 						env.getProperty("mongo.host"), 
 						env.getProperty("mongo.port", Integer.class)
 						),
-				Arrays.asList(credential)
+				credential,
+				MongoClientOptions.builder().build()
 		);
 	}
 

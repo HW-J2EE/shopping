@@ -2,7 +2,6 @@ package shopping.service.impl;
 
 import shopping.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.object.UpdatableSqlQuery;
 import org.springframework.stereotype.Service;
 
 import shopping.mapper.UserMapper;
