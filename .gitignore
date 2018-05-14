@@ -1,2 +1,4 @@
 /target/
 *.propertes
+*.properties
+target/m2e-wtp/web-resources/META-INF/maven/shopping/shopping/pom.xml
