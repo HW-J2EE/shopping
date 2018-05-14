@@ -1,7 +1,11 @@
 package shopping.service;
 
+import shopping.model.User;
+
 public interface UserService {
 
-	String register(String password);
+	User register(String phoneNum, String password);
+
+	User regin(String phoneNum, String password);
 
 }

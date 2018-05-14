@@ -2,6 +2,13 @@ package shopping.model;
 
 public class User {
 	private int id;
+	private String phoneNum;
+	public String getPhoneNum() {
+		return phoneNum;
+	}
+	public void setPhoneNum(String phoneNum) {
+		this.phoneNum = phoneNum;
+	}
 	private String nickname;
 	private String password;
 	public int getId() {
@@ -25,5 +32,12 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", nickname=" + nickname + ", password=" + password + "]";
+	}
+	public static User createUser(String phoneNum2, String password2) {
+		User user = new User();
+		user.setPhoneNum(phoneNum2);
+		user.setPassword(password2);
+		user.setNickname(phoneNum2);
+		return user;
 	}
 }
