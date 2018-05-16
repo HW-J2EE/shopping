@@ -16,4 +16,9 @@
 		from commodity
 		where commodity_id = #{commodityId}
 	</select>
+	<update id="reduceCommodity">
+		update commodity
+		set stock=stock-#{count}
+		where commodity_id=#{commodityId}
+	</update>
 </mapper>

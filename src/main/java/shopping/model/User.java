@@ -3,14 +3,15 @@ package shopping.model;
 public class User {
 	private int id;
 	private String phoneNum;
+	private String nickname;
+	private String password;
+	
 	public String getPhoneNum() {
 		return phoneNum;
 	}
 	public void setPhoneNum(String phoneNum) {
 		this.phoneNum = phoneNum;
 	}
-	private String nickname;
-	private String password;
 	public int getId() {
 		return id;
 	}

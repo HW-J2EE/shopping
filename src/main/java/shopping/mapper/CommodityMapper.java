@@ -7,4 +7,6 @@ import shopping.model.Commodity;
 public interface CommodityMapper {
 	Commodity getCommodityById(@Param("commodityId")int commodityId);
 
+	int reduceCommodity(@Param("commodityId")int commodityId, @Param("count")int count);
+
 }

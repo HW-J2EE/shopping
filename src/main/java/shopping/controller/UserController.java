@@ -24,7 +24,9 @@ public class UserController {
 			String phoneNum,
 			String password) {
 		HashMap<String, Object> hashMap = new HashMap<>();
+		
 		User user = userService.register(phoneNum, password);
+		
 		if(user!=null) {
 			hashMap.put("user", user);
 			return ResultModel.successResult(hashMap);

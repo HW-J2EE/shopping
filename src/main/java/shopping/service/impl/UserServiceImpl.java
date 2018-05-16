@@ -19,13 +19,13 @@ public class UserServiceImpl implements UserService {
 		
 		if(userMapper.verifyUser(phoneNum) == null){
 			userMapper.addUser(user);
-				if(user.getId()!=0) {
-					return user;
-				}
-			return null;//注册失败
+			if(user.getId()!=0) {
+				return user;
 			}
-		return null;//账户已存在
+			return null;//注册失败
 		}
+		return null;//账户已存在
+	}
 		
 	/*
 	@Override
