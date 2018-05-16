@@ -25,4 +25,36 @@
 		where phone_number=#{phoneNum}
 	</select>
 	
+	<update id="updateNickName" >
+		UPDATE user SET nickname=#{nickName}
+		WHERE id=#{id}
+	</update>
+	
+	<select id="verifyPassword" resultType="String">
+		select id
+		from user
+		where id=#{id} and password=#{oldPassword}
+	</select>
+	
+	
+	<update id="updatePassword" >
+		UPDATE user SET password=#{newPassword}
+		WHERE id=#{id}
+	</update>
+	
+	<insert id="addAddress" parameterType="shopping.model.Address" useGeneratedKeys="true" keyProperty="address_id">
+		insert into address(user_id, address_info, contact_name, contact_phone, is_main) values(#{user_id}, #{address_info}, #{contact_name}, #{contact_phone},#{is_main})
+	</insert>
+	
+	<update id="set_other_address_not_main">
+		UPDATE address SET is_main=#{is_main}
+		WHERE user_id=#{user_id}
+	</update>
+	
+	<update id="updateAddress">
+		UPDATE address SET address_info=#{address_info}, contact_name=#{contact_name}, contact_phone=#{contact_phone}, is_main=#{is_main}
+		WHERE address_id=#{address_id} and user_id=#{user_id}
+	</update>
+	
+	
 </mapper>
