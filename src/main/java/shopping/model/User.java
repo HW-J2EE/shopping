@@ -1,7 +1,7 @@
 package shopping.model;
 
 public class User {
-	private int id;
+private int id;
 	private String phoneNum;
 	public String getPhoneNum() {
 		return phoneNum;
