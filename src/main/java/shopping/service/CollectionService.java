@@ -8,7 +8,7 @@ public interface CollectionService {
 	
 	public int collect(int user_id,int commodity_id);
 	
-	public int cancelCollect(int user_id, int commodity_id);
+	public int cancelCollect(int user_id, int collection_id);
 	
 	public List<Collection> getCollections(int user_id);
 

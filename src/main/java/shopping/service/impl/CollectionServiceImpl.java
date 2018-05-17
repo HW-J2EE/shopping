@@ -27,7 +27,7 @@ public class CollectionServiceImpl implements CollectionService{
 	}
 	
 	@Override
-	public int cancelCollect(int user_id,int commodity_id) {
+	public int cancelCollect(int user_id,int collection_id) {
 		collectionMapper.removeCollection();
 		return 1;
 	}

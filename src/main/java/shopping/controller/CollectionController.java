@@ -8,12 +8,14 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import shopping.model.Collection;
 import shopping.model.ResultModel;
 import shopping.service.CollectionService;
 
-
+@RestController
+@RequestMapping("/collection")
 public class CollectionController {
 	
 	@Autowired
@@ -25,7 +27,7 @@ public class CollectionController {
 		HashMap<String, Object> hashMap = new HashMap<>();
 		int collectState = collectionService.collect(user_id,commodity_id);
 		if(collectState != 0) {
-			hashMap.put("collectState", collectState);
+			//hashMap.put("collectState", collectState);
 			return ResultModel.successResult(hashMap);
 		}
 		else {
@@ -35,11 +37,11 @@ public class CollectionController {
 	
 	@RequestMapping("/cancelCollect")
 	@ResponseBody
-	public ResultModel cancelCollect(int user_id, int commodity_id) {
+	public ResultModel cancelCollect(int user_id, int collection_id) {
 		HashMap<String, Object> hashMap = new HashMap<>();
-		int cancelCollectState = collectionService.cancelCollect(user_id,commodity_id);
+		int cancelCollectState = collectionService.cancelCollect(user_id,collection_id);
 		if(cancelCollectState != 0) {
-			hashMap.put("cancelCollectState", cancelCollectState);
+			//hashMap.put("cancelCollectState", cancelCollectState);
 			return ResultModel.successResult(hashMap);
 		}
 		else {
