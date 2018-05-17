@@ -29,7 +29,7 @@ public class UserController {
 		User user = userService.register(phoneNum, password);
 		
 		if(user!=null) {
-			hashMap.put("user", user);
+			hashMap.put("userId", user.getId());
 			return ResultModel.successResult(hashMap);
 		}else {
 			return ResultModel.failResult();
@@ -55,7 +55,7 @@ public class UserController {
 		HashMap<String, Object> hashMap = new HashMap<>();
 		int updateSate = userService.nickNameChange(id, nickName);
 		if(updateSate != 0) {
-			hashMap.put("updateState", updateSate);
+			//hashMap.put("updateState", updateSate);
 			return ResultModel.successResult(hashMap);
 		}
 		else {
@@ -72,7 +72,7 @@ public class UserController {
 		if(isRightPassword) {
 			int updateSate = userService.passwordChange(id, newPassword);
 			if(updateSate != 0) {
-				hashMap.put("updateState", updateSate);
+				//hashMap.put("updateState", updateSate);
 				return ResultModel.successResult(hashMap);
 			}
 			else {
@@ -94,7 +94,7 @@ public class UserController {
 		HashMap<String,Object> hashMap= new HashMap<>();
 		Address address = userService.addAddress(user_id, address_info, contact_name, contact_phone,is_main);
 		if(address != null) {
-			hashMap.put("address", address);
+			hashMap.put("addressId", address.getAddress_id());
 			return ResultModel.successResult(hashMap);
 		}
 		else {
@@ -109,7 +109,7 @@ public class UserController {
 	{
 		HashMap<String, Object> hashMap = new HashMap<>();
 		int updateState =  userService.addressChange(address_id,user_id, address_info, contact_name, contact_phone,is_main);
-		hashMap.put("updateState", updateState);
+		//hashMap.put("updateState", updateState);
 		if(updateState != 0)
 			return ResultModel.successResult(hashMap);
 		else
