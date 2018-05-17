@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="shopping.mapper.CollectionMapper">
+    <resultMap type="shopping.model.Collection" id="collectionMap">
+		<id property="user_id" column="user_id"/>
+		<result property="commodity_id" column="commodity_id"/>
+		<result property="collection_id" column="collection_id"/>
+		<result property="date" column="date"/>
+	</resultMap>
+
+	<insert id="addCollection" parameterType="shopping.model.Collection" useGeneratedKeys="true" keyProperty="collection_id">
+		insert into collection(date,user_id,commodity_id) values(#{date},#{user_id},#{commodity_id})
+	</insert>
+	
+	<delete id="removeCollection" parameterType="shopping.model.Collection" >
+		delete from collection where collection_id = #{collection_id}
+	</delete>
+	
+	<select id="getCts" resultMap="collectionMap">
+		select *
+		from collection
+		where user_id=#{user_id}
+	</select>
+</mapper>
