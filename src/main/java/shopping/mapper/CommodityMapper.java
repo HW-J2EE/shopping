@@ -9,4 +9,6 @@ public interface CommodityMapper {
 
 	int reduceCommodity(@Param("commodityId")int commodityId, @Param("count")int count);
 
+	void addCommodityWithoutPicture(Commodity commodity);
+
 }
