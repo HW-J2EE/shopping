@@ -11,6 +11,10 @@
 		<result property="category" column="category"/>
 	</resultMap>
 
+	<insert id="addCommodityWithoutPicture" useGeneratedKeys="true" keyProperty="commodityId">
+		insert into commodity(name, price, stock) values(#{name}, #{price}, #{stock})
+	</insert>
+
 	<select id="getCommodityById" resultMap="commodityMap">
 		select *
 		from commodity

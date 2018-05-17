@@ -31,7 +31,7 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
 	@Override
 	protected void customizeRegistration(Dynamic registration) {
 		super.customizeRegistration(registration);
-		registration.setMultipartConfig(new MultipartConfigElement("/tmp/uploads", 10*BLOCK_SIZE, 20*BLOCK_SIZE, 0));
+		registration.setMultipartConfig(new MultipartConfigElement("/", 10*BLOCK_SIZE, 20*BLOCK_SIZE, 0));
 	}
 	
 	/**
