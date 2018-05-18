@@ -2,14 +2,14 @@ package shopping.model;
 
 import java.util.Date;
 
-public class Collection {
+public class CollectionModel {
 	private int collection_id;
 	private int commodity_id;
 	private int user_id;
 	private Date date;
 	
-	public static Collection createCollection(int user_id, int commodity_id) {
-		Collection collection = new Collection();
+	public static CollectionModel createCollection(int user_id, int commodity_id) {
+		CollectionModel collection = new CollectionModel();
 		collection.setUser_id(user_id);
 		collection.setCommodity_id(commodity_id);
 		collection.setDate(new Date());

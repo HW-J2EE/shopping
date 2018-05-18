@@ -2,7 +2,7 @@ package shopping.service;
 
 import java.util.List;
 
-import shopping.model.Collection;
+import shopping.model.CollectionModel;
 
 public interface CollectionService {
 	
@@ -10,6 +10,6 @@ public interface CollectionService {
 	
 	public int cancelCollect(int user_id, int collection_id);
 	
-	public List<Collection> getCollections(int user_id);
+	public List<CollectionModel> getCollections(int user_id);
 
 }

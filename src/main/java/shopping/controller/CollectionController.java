@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import shopping.model.Collection;
+import shopping.model.CollectionModel;
 import shopping.model.ResultModel;
 import shopping.service.CollectionService;
 
@@ -53,7 +53,7 @@ public class CollectionController {
 	@ResponseBody
 	public ResultModel getCollections(int user_id) {
 		Map<String, Object> hashMap = new HashMap<>();
-		List<Collection> collectionList = new ArrayList<>();
+		List<CollectionModel> collectionList = new ArrayList<>();
 		collectionList = collectionService.getCollections(user_id);
 		if(collectionList != null) {
 			hashMap.put("collectionList", collectionList);

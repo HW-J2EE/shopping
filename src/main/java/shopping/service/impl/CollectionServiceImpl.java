@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import shopping.mapper.CollectionMapper;
-import shopping.model.Collection;
+import shopping.model.CollectionModel;
 import shopping.service.CollectionService;
 
 @Service
@@ -21,7 +21,7 @@ public class CollectionServiceImpl implements CollectionService{
 	
 	@Override
 	public int collect(int user_id,int commodity_id) {
-		Collection collection = Collection.createCollection(user_id, commodity_id);
+		CollectionModel collection = CollectionModel.createCollection(user_id, commodity_id);
 		collectionMapper.addCollection(collection);
 		return 1;
 	}
@@ -33,8 +33,8 @@ public class CollectionServiceImpl implements CollectionService{
 	}
 	
 	@Override
-	public List<Collection> getCollections(int user_id) {
-		List<Collection> collectionList = new ArrayList<>();
+	public List<CollectionModel> getCollections(int user_id) {
+		List<CollectionModel> collectionList = new ArrayList<>();
 		collectionList = collectionMapper.getCts(user_id);
 		return collectionList;
 	}

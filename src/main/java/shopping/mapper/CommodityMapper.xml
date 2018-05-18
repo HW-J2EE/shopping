@@ -30,4 +30,17 @@
 		set picture = #{picture}
 		where commodity_id=#{commodityId}
 	</update>
+	<select id="getRecommonds" resultMap="commodityMap">
+		select *
+		from commodity
+		where commodity_id>=(
+						((select max(commodity_id) from commodity)
+						- 
+						(select min(commodity_id) from commodity))
+						* rand()
+						+
+						(select min(commodity_id) from commodity)
+					  )
+		limit #{count}
+	</select>
 </mapper>

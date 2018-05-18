@@ -1,5 +1,7 @@
 package shopping.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 import shopping.model.Commodity;
@@ -12,5 +14,7 @@ public interface CommodityMapper {
 	void addCommodityWithoutPicture(Commodity commodity);
 
 	void updateCommodityForPicture(@Param("commodityId")Integer commodityId, @Param("picture")String newFileName);
+
+	List<Commodity> getRecommonds(@Param("userId")int userId, @Param("count")int count);
 
 }

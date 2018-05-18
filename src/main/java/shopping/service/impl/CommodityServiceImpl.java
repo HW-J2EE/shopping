@@ -27,10 +27,12 @@ public class CommodityServiceImpl implements CommodityService {
 	}
 
 	@Override
-	public List<Commodity> recommondCommodictories(int id, int count) {
-		return null;
-		// TODO 自动生成的方法存根
-		
+	public List<Commodity> recommondCommodictories(int userId, int count) {
+		List<Commodity> commodities = commodityMapper.getRecommonds(userId, count);
+		if(commodities.size()<count) {
+			commodities.addAll(commodityMapper.getRecommonds(userId, count-commodities.size()));
+		}
+		return commodities;
 	}
 
 	@Override
