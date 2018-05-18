@@ -15,5 +15,9 @@ public interface CommodityService {
 	List<Commodity> recommondCommodictories(int id, int count);
 
 	Commodity uploadPictureOfCommodity(Integer commodityId, MultipartFile picture) throws IOException;
+
+	List<Commodity> getCommodities(int page, int i);
+
+	int getTotalPage();
 	
 }

@@ -52,4 +52,16 @@ public class CommodityServiceImpl implements CommodityService {
 		return commodityMapper.getCommodityById(commodityId);
 	}
 
+	@Override
+	public List<Commodity> getCommodities(int page, int i) {
+		// TODO 自动生成的方法存根
+		return null;
+	}
+
+	@Override
+	public int getTotalPage() {
+		// TODO 自动生成的方法存根
+		return 0;
+	}
+
 }

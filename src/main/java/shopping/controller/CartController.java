@@ -58,12 +58,12 @@ public class CartController {
 	}
 	
 	@RequestMapping("orderPay")
-	public ResultModel orderPay(long orderId) {
+	public ResultModel orderPay(int userId, long orderId) {
 		cartService.orderPay(orderId);
 		return ResultModel.successResult(null);
 	}
 	@RequestMapping("orderCancel")
-	public ResultModel orderCancel(long orderId) {
+	public ResultModel orderCancel(int userId, long orderId) {
 		cartService.orderCancel(orderId);
 		return ResultModel.successResult(null);
 	}

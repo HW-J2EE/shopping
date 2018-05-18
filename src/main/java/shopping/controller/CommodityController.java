@@ -1,9 +1,12 @@
 package shopping.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
+
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -54,5 +57,15 @@ public class CommodityController {
 			e.printStackTrace();
 			return ResultModel.failResult();
 		}
+	}
+	
+	@RequestMapping("getCommodities")
+	public ResultModel getCommodities(int page) {
+		List<Commodity> commodities = commodityService.getCommodities(page, 20);
+		int totalPage=commodityService.getTotalPage();
+		Map<String, Object>data = new HashMap<>();
+		data.put("commodities", commodities);
+		data.put("totalPage", totalPage);
+		return ResultModel.successResult(data);
 	}
 }
