@@ -1,4 +1,4 @@
-/target/
+target/
 *.propertes
 *.properties
 target/m2e-wtp/web-resources/META-INF/maven/shopping/shopping/pom.xml
@@ -12,3 +12,4 @@ target/m2e-wtp/web-resources/META-INF/maven/shopping/shopping/pom.properties
 target/m2e-wtp/web-resources/META-INF/MANIFEST.MF
 .classpath
 target/classes/shopping/config/datasource.propertes
+target/m2e-wtp/web-resources/META-INF/MANIFEST.MF
