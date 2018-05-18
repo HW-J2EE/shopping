@@ -4,7 +4,6 @@ import javax.servlet.ServletContextEvent;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.ContextLoaderListener;
-import org.springframework.web.util.WebAppRootListener;
 
 @Component
 public class WebRootListener extends ContextLoaderListener {

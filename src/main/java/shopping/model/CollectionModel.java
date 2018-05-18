@@ -7,6 +7,7 @@ public class CollectionModel {
 	private int commodity_id;
 	private int user_id;
 	private Date date;
+	private Commodity commodity;
 	
 	public static CollectionModel createCollection(int user_id, int commodity_id) {
 		CollectionModel collection = new CollectionModel();
@@ -40,6 +41,14 @@ public class CollectionModel {
 	}
 	public void setUser_id(int user_id) {
 		this.user_id = user_id;
+	}
+
+	public Commodity getCommodity() {
+		return commodity;
+	}
+
+	public void setCommodity(Commodity commodity) {
+		this.commodity = commodity;
 	}
 	
 

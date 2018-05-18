@@ -5,8 +5,6 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
-
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -61,8 +59,9 @@ public class CommodityController {
 	
 	@RequestMapping("getCommodities")
 	public ResultModel getCommodities(int page) {
-		List<Commodity> commodities = commodityService.getCommodities(page, 20);
-		int totalPage=commodityService.getTotalPage();
+		int count = 20;
+		List<Commodity> commodities = commodityService.getCommodities(page, count);
+		int totalPage=commodityService.getTotalPage(count);
 		Map<String, Object>data = new HashMap<>();
 		data.put("commodities", commodities);
 		data.put("totalPage", totalPage);

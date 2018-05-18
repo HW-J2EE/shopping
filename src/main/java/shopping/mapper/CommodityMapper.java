@@ -17,4 +17,8 @@ public interface CommodityMapper {
 
 	List<Commodity> getRecommonds(@Param("userId")int userId, @Param("count")int count);
 
+	List<Commodity> getCommodities(@Param("page")int page, @Param("count")int count);
+
+	int getCommodityCount();
+
 }

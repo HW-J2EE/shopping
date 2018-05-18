@@ -53,15 +53,14 @@ public class CommodityServiceImpl implements CommodityService {
 	}
 
 	@Override
-	public List<Commodity> getCommodities(int page, int i) {
-		// TODO 自动生成的方法存根
-		return null;
+	public List<Commodity> getCommodities(int page, int count) {
+		return commodityMapper.getCommodities(page, count);
 	}
 
 	@Override
-	public int getTotalPage() {
-		// TODO 自动生成的方法存根
-		return 0;
+	public int getTotalPage(int count) {
+		int totalComs = commodityMapper.getCommodityCount();
+		return totalComs/count + 1;
 	}
 
 }

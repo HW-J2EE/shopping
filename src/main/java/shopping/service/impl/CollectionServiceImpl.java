@@ -1,15 +1,14 @@
 package shopping.service.impl;
 
-import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import shopping.mapper.CollectionMapper;
+import shopping.mapper.CommodityMapper;
 import shopping.model.CollectionModel;
+import shopping.model.Commodity;
 import shopping.service.CollectionService;
 
 @Service
@@ -17,7 +16,8 @@ public class CollectionServiceImpl implements CollectionService{
 	
 	@Autowired
 	private CollectionMapper collectionMapper;
-	
+	@Autowired
+	private CommodityMapper commodityMapper;
 	
 	@Override
 	public int collect(int user_id,int commodity_id) {
@@ -36,6 +36,11 @@ public class CollectionServiceImpl implements CollectionService{
 	public List<CollectionModel> getCollections(int user_id) {
 		List<CollectionModel> collectionList;
 		collectionList = collectionMapper.getCts(user_id);
+		Iterator<CollectionModel> iterator = collectionList.iterator();
+		while(iterator.hasNext()) {
+			CollectionModel temp = iterator.next();
+			temp.setCommodity(commodityMapper.getCommodityById(temp.getCommodity_id()));
+		}
 		return collectionList;
 	}
 

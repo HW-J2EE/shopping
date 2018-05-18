@@ -43,4 +43,14 @@
 					  )
 		limit #{count}
 	</select>
+	<select id="getCommodities" resultMap="commodityMap">
+		select *
+		from commodity
+		order by commodity_id
+		limit (#{page}-1)*#{count}, count
+	</select>
+	<select id="getCommodityCount">
+		select count(*)
+		from commodity
+	</select>
 </mapper>

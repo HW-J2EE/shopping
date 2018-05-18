@@ -3,7 +3,6 @@ package shopping.mapper;
 import java.util.List;
 
 import shopping.model.CollectionModel;
-import shopping.model.User;
 
 public interface CollectionMapper {
 	

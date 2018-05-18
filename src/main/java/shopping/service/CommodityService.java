@@ -18,6 +18,6 @@ public interface CommodityService {
 
 	List<Commodity> getCommodities(int page, int i);
 
-	int getTotalPage();
+	int getTotalPage(int count);
 	
 }
