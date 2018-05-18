@@ -34,7 +34,7 @@ public class CollectionServiceImpl implements CollectionService{
 	
 	@Override
 	public List<CollectionModel> getCollections(int user_id) {
-		List<CollectionModel> collectionList = new ArrayList<>();
+		List<CollectionModel> collectionList;
 		collectionList = collectionMapper.getCts(user_id);
 		return collectionList;
 	}
