@@ -25,4 +25,9 @@
 		set stock=stock-#{count}
 		where commodity_id=#{commodityId}
 	</update>
+	<update id="updateCommodityForPicture">
+		update commodity
+		set picture = #{picture}
+		where commodity_id=#{commodityId}
+	</update>
 </mapper>

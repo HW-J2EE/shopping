@@ -11,4 +11,6 @@ public interface CommodityMapper {
 
 	void addCommodityWithoutPicture(Commodity commodity);
 
+	void updateCommodityForPicture(@Param("commodityId")Integer commodityId, @Param("picture")String newFileName);
+
 }
