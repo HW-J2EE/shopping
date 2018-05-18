@@ -7,9 +7,13 @@ import org.springframework.context.annotation.Import;
 @Configuration
 @ComponentScan(
 		basePackages= {
-				"shopping.config", "shopping.service", "shopping.mapper"
+				"shopping.config", "shopping.service", "shopping.mapper",
+				"shopping.listener","shopping.common"
 		})
-@Import(DataSourceConfig.class)
+@Import(value= {
+		DataSourceConfig.class,
+		CosConfig.class
+})
 public class RootConfig {
 	
 }

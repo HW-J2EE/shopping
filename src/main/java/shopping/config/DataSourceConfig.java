@@ -17,7 +17,7 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 @Configuration
-@PropertySource("classpath:/shopping/config/datasource.propertes")
+@PropertySource("classpath:/shopping/config/datasource.properties")
 @MapperScan("shopping.mapper")
 public class DataSourceConfig {
 	

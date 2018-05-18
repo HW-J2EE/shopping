@@ -1,6 +1,7 @@
 package shopping.controller;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,8 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import shopping.model.Address;
+import shopping.model.Commodity;
 import shopping.model.ResultModel;
 import shopping.model.User;
+import shopping.service.CommodityService;
 import shopping.service.UserService;
 
 @RequestMapping("/user")
@@ -18,6 +21,8 @@ public class UserController {
 	
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private CommodityService commodityService;
 	
 	@RequestMapping("/register")
 	@ResponseBody
@@ -42,7 +47,9 @@ public class UserController {
 		HashMap<String, Object> hashMap = new HashMap<>();
 		User user = userService.login(phoneNum,password);
 		if(user!=null) {
+			List<Commodity> commodities = commodityService.recommondCommodictories(user.getId(), 3);
 			hashMap.put("user", user);
+			hashMap.put("commodities", commodities);
 			return ResultModel.successResult(hashMap);
 		}else {
 			return ResultModel.failResult();
