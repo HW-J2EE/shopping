@@ -22,5 +22,5 @@ public interface UserMapper {
 
 	public void set_other_address_not_main(@Param("user_id")int user_id,@Param("is_main")boolean is_main);
 
-	public int updateAddress(Address address);
+	public int updateAddress(@Param("userId")int userId, @Param("address")String address);
 }

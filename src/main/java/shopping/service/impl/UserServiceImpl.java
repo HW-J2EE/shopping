@@ -72,13 +72,12 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
-	public int addressChange(int address_id, int user_id, String address_info, String contact_name, String contact_phone,
-			boolean is_main) {
-		Address address = Address.createAddress(address_id,user_id, address_info, contact_name, contact_phone,is_main);
-		if(is_main) {
-			userMapper.set_other_address_not_main(user_id,false);
-		}
-		return userMapper.updateAddress(address);
+	public int addressChange(int userId, String address) {
+//		Address address = Address.createAddress(address_id,user_id, address_info, contact_name, contact_phone,is_main);
+//		if(is_main) {
+//			userMapper.set_other_address_not_main(user_id,false);
+//		}
+		return userMapper.updateAddress(userId, address);
 
 	}
 }

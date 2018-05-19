@@ -67,4 +67,12 @@ public class CommodityController {
 		data.put("totalPage", totalPage);
 		return ResultModel.successResult(data);
 	}
+	
+	@RequestMapping("searchCommodities")
+	public ResultModel searchCommoditis(int userId, String keyword) {
+		List<Commodity> commodities = commodityService.searchCommodities(userId, keyword);
+		Map<String, Object> data = new HashMap<>();
+		data.put("commodities", commodities);
+		return ResultModel.successResult(data);
+	}
 }

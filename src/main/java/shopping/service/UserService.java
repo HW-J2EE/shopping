@@ -17,7 +17,6 @@ public interface UserService {
 
 	Address addAddress(int user_id, String address_info, String contact_name, String contact_phone, boolean is_main);
 
-	int addressChange(int address_id, int user_id, String address_info, String contact_name, String contact_phone,
-			boolean is_main);
+	int addressChange(int userId, String address);
 
 }

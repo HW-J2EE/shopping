@@ -111,11 +111,10 @@ public class UserController {
 	
 	@RequestMapping("/addressChange")
 	@ResponseBody
-	public ResultModel addressChange(int address_id,int user_id, String address_info, String contact_name, 
-			String contact_phone,boolean is_main)
+	public ResultModel addressChange(int userId, String address)
 	{
 		HashMap<String, Object> hashMap = new HashMap<>();
-		int updateState =  userService.addressChange(address_id,user_id, address_info, contact_name, contact_phone,is_main);
+		int updateState =  userService.addressChange(userId, address);
 		//hashMap.put("updateState", updateState);
 		if(updateState != 0)
 			return ResultModel.successResult(hashMap);

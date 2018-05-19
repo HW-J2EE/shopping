@@ -53,4 +53,10 @@
 		select count(*)
 		from commodity
 	</select>
+	<select id="searchCommodities" resultMap="commodityMap">
+		select *
+		from commodity
+		where locate(#{keyword}, name)>0;
+	</select>
+	
 </mapper>

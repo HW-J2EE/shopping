@@ -5,6 +5,7 @@ private int id;
 	private String phoneNum;
 	private String nickname;
 	private String password;
+	private String address;
 	
 	public String getPhoneNum() {
 		return phoneNum;
@@ -40,5 +41,11 @@ private int id;
 		user.setPassword(password2);
 		user.setNickname(phoneNum2);
 		return user;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
 	}
 }

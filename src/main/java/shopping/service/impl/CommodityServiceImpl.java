@@ -63,4 +63,9 @@ public class CommodityServiceImpl implements CommodityService {
 		return totalComs/count + (totalComs%count>0?1:0);
 	}
 
+	@Override
+	public List<Commodity> searchCommodities(int userId, String keyword) {
+		return commodityMapper.searchCommodities(keyword);
+	}
+
 }

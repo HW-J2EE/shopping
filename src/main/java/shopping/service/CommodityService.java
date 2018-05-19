@@ -19,5 +19,7 @@ public interface CommodityService {
 	List<Commodity> getCommodities(int page, int i);
 
 	int getTotalPage(int count);
+
+	List<Commodity> searchCommodities(int userId, String keyword);
 	
 }

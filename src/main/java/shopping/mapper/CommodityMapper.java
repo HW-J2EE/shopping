@@ -21,4 +21,6 @@ public interface CommodityMapper {
 
 	int getCommodityCount();
 
+	List<Commodity> searchCommodities(String keyword);
+
 }
