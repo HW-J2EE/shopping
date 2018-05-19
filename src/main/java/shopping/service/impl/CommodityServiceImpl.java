@@ -54,13 +54,13 @@ public class CommodityServiceImpl implements CommodityService {
 
 	@Override
 	public List<Commodity> getCommodities(int page, int count) {
-		return commodityMapper.getCommodities(page, count);
+		return commodityMapper.getCommodities((page-1)*count, count);
 	}
 
 	@Override
 	public int getTotalPage(int count) {
 		int totalComs = commodityMapper.getCommodityCount();
-		return totalComs/count + 1;
+		return totalComs/count + (totalComs%count>0?1:0);
 	}
 
 }

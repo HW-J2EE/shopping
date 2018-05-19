@@ -47,9 +47,9 @@
 		select *
 		from commodity
 		order by commodity_id
-		limit (#{page}-1)*#{count}, count
+		limit #{offsize}, #{count}
 	</select>
-	<select id="getCommodityCount">
+	<select id="getCommodityCount" resultType="int">
 		select count(*)
 		from commodity
 	</select>
