@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -58,8 +59,8 @@ public class CommodityController {
 	}
 	
 	@RequestMapping("getCommodities")
-	public ResultModel getCommodities(int page) {
-		int count = 20;
+	public ResultModel getCommodities(int page, 
+			@RequestParam(value="count", required=false, defaultValue="20")int count) {
 		List<Commodity> commodities = commodityService.getCommodities(page, count);
 		int totalPage=commodityService.getTotalPage(count);
 		Map<String, Object>data = new HashMap<>();
