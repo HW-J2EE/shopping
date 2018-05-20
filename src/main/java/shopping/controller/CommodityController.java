@@ -43,7 +43,7 @@ public class CommodityController {
 	@RequestMapping("/uploadPicture")
 	public ResultModel uploadPicture(Integer commodityId, 
 //			@RequestPart("picture")Part picture,
-			MultipartFile picture,						//config bean of multipartResolver in WebConfig
+			@RequestParam("picture")MultipartFile picture,						//config bean of multipartResolver in WebConfig
 			HttpSession httpSession
 			) throws IOException {
 		try {

@@ -4,9 +4,13 @@ package shopping.config;
 
 import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletRegistration.Dynamic;
+import javax.servlet.annotation.MultipartConfig;
 
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+
+import java.lang.annotation.Annotation;
+
 import javax.servlet.Filter;
 
 public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer{
@@ -31,7 +35,7 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
 	@Override
 	protected void customizeRegistration(Dynamic registration) {
 		super.customizeRegistration(registration);
-		registration.setMultipartConfig(new MultipartConfigElement("/", 10*BLOCK_SIZE, 20*BLOCK_SIZE, 0));
+//		registration.setMultipartConfig(new MultipartConfigElement("/tmp/shopping/uploads", 10*BLOCK_SIZE, 20*BLOCK_SIZE, 0));
 	}
 	
 	/**
