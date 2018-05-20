@@ -12,4 +12,6 @@ public interface CollectionService {
 	
 	public List<CollectionModel> getCollections(int user_id);
 
+	public int cancelCollectByCommodityId(int user_id, int commodity_id);
+
 }

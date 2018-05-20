@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -37,9 +38,17 @@ public class CollectionController {
 	
 	@RequestMapping("/cancelCollect")
 	@ResponseBody
-	public ResultModel cancelCollect(int user_id, int collection_id) {
+	public ResultModel cancelCollect(
+			int user_id, 
+			@RequestParam(value="collection_id", required=false, defaultValue="-1")int collection_id,
+			@RequestParam(value="commodity_id",required=false,defaultValue="-1")int commodity_id) {
 		HashMap<String, Object> hashMap = new HashMap<>();
-		int cancelCollectState = collectionService.cancelCollect(user_id,collection_id);
+		int cancelCollectState=0;
+		if(collection_id!=-1) {
+			cancelCollectState = collectionService.cancelCollect(user_id,collection_id);
+		}else {
+			cancelCollectState = collectionService.cancelCollectByCommodityId(user_id, commodity_id);
+		}
 		if(cancelCollectState != 0) {
 			//hashMap.put("cancelCollectState", cancelCollectState);
 			return ResultModel.successResult(hashMap);

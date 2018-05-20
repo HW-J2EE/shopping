@@ -28,8 +28,7 @@ public class CollectionServiceImpl implements CollectionService{
 	
 	@Override
 	public int cancelCollect(int user_id,int collection_id) {
-		collectionMapper.removeCollection();
-		return 1;
+		return collectionMapper.removeCollectionByCollectionId(collection_id);
 	}
 	
 	@Override
@@ -42,6 +41,11 @@ public class CollectionServiceImpl implements CollectionService{
 			temp.setCommodity(commodityMapper.getCommodityById(temp.getCommodity_id()));
 		}
 		return collectionList;
+	}
+
+	@Override
+	public int cancelCollectByCommodityId(int user_id, int commodity_id) {
+		return collectionMapper.removeCollectionByCommodityId(user_id, commodity_id);
 	}
 
 }

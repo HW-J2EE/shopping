@@ -7,6 +7,7 @@
 		<result property="phoneNum" column="phone_number"/>
 		<result property="password" column="password"/>
 		<result property="nickname" column="nickname"/>
+		<result property="address" column="address"/>
 	</resultMap>
 	
 	<insert id="addUser" parameterType="shopping.model.User" useGeneratedKeys="true" keyProperty="id">
@@ -52,8 +53,8 @@
 	</update>
 	
 	<update id="updateAddress">
-		UPDATE address SET address_info=#{address_info}, contact_name=#{contact_name}, contact_phone=#{contact_phone}, is_main=#{is_main}
-		WHERE address_id=#{address_id} and user_id=#{user_id}
+		UPDATE user SET address = #{address}
+		WHERE id=#{userId}
 	</update>
 	
 	
